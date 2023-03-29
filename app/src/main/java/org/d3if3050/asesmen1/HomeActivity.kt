@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import org.d3if3050.asesmen1.databinding.ActivityHomeBinding
@@ -18,7 +19,7 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.button.setOnClickListener{ cariTanaman() }
+        binding.button.setOnClickListener { cariTanaman() }
         supportActionBar?.hide()
         listData = getData()
     }
@@ -137,29 +138,34 @@ class HomeActivity : AppCompatActivity() {
 
     private fun cariTanaman() {
         val cari = binding.tanamanInp.text.toString().lowercase()
-        if(TextUtils.isEmpty(cari)) {
+        if (TextUtils.isEmpty(cari)) {
             Toast.makeText(this, R.string.cari_invalid, Toast.LENGTH_LONG).show()
             return
         }
 
-       listData.forEachIndexed { index, tumbuhan ->
-            if (cari.equals(tumbuhan.nama, ignoreCase = true)) {
+        val filtered = listData.filter { cari.equals(it.nama, ignoreCase = true) }
+        if (filtered != null && filtered.size > 0) {
+            filtered.forEach { tumbuhan ->
                 binding.details.visibility = View.VISIBLE
+                binding.details.text = getString(R.string.details)
+                binding.gambar.visibility = View.VISIBLE
                 binding.gambar.setImageResource(tumbuhan.imageResId)
+                binding.judulTanaman.visibility = View.VISIBLE
                 binding.judulTanaman.text = tumbuhan.nama
+                binding.deskripsiTanaman.visibility = View.VISIBLE
                 binding.deskripsiTanaman.text = tumbuhan.deskripsi
+                binding.cara.visibility = View.VISIBLE
                 binding.cara.text = tumbuhan.caraMerawat
             }
+        } else {
+            binding.details.visibility = View.VISIBLE
+            binding.details.text = getString(R.string.data_invalid)
+            binding.gambar.visibility = View.GONE
+            binding.judulTanaman.visibility = View.GONE
+            binding.deskripsiTanaman.visibility = View.GONE
+            binding.cara.visibility = View.GONE
+
         }
-
-//        listData.forEachIndexed { index, tumbuhan ->
-//            if (cari != tumbuhan.nama.lowercase()){
-//                binding.details.visibility = View.VISIBLE
-//                binding.details.text = getString(R.string.data_invalid)
-//            }
-//        }
-
-
 
 
     }

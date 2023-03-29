@@ -6,6 +6,5 @@
     <string name="cari">Cari</string>
     <string name="details">Details</string>
     <string name="cari_invalid">Pencarian harus diisi</string>
-    <string name="judul_x">%1$s</string>
     <string name="data_invalid">Maaf, data tidak tersedia</string>
 </resources>
