@@ -1,10 +1,9 @@
 package org.d3if3050.asesmen1
 
-import android.annotation.SuppressLint
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import org.d3if3050.asesmen1.databinding.ActivityHomeBinding
@@ -144,7 +143,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         val filtered = listData.filter { cari.equals(it.nama, ignoreCase = true) }
-        if (filtered != null && filtered.size > 0) {
+        if (filtered.isNotEmpty()) {
             filtered.forEach { tumbuhan ->
                 binding.details.visibility = View.VISIBLE
                 binding.details.text = getString(R.string.details)
@@ -156,6 +155,8 @@ class HomeActivity : AppCompatActivity() {
                 binding.deskripsiTanaman.text = tumbuhan.deskripsi
                 binding.cara.visibility = View.VISIBLE
                 binding.cara.text = tumbuhan.caraMerawat
+                binding.namaLatin.visibility = View.VISIBLE
+                binding.namaLatin.text = tumbuhan.namaLatin
             }
         } else {
             binding.details.visibility = View.VISIBLE
@@ -164,6 +165,7 @@ class HomeActivity : AppCompatActivity() {
             binding.judulTanaman.visibility = View.GONE
             binding.deskripsiTanaman.visibility = View.GONE
             binding.cara.visibility = View.GONE
+            binding.namaLatin.visibility = View.GONE
 
         }
 
