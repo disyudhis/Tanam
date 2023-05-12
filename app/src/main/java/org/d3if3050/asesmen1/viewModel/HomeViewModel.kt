@@ -1,26 +1,22 @@
-package org.d3if3050.asesmen1
+package org.d3if3050.asesmen1.viewModel
 
-
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.text.TextUtils
-import android.view.View
 import android.widget.Toast
-import org.d3if3050.asesmen1.databinding.ActivityHomeBinding
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import org.d3if3050.asesmen1.R
+import org.d3if3050.asesmen1.activity.HomeActivity
+import org.d3if3050.asesmen1.model.Tumbuhan
 
-class HomeActivity : AppCompatActivity() {
+class HomeViewModel : ViewModel(){
+    private val _listData = MutableLiveData<List<Tumbuhan>>()
+    val listData: LiveData<List<Tumbuhan>> = _listData
 
+   private var fullListData = listOf<Tumbuhan>()
 
-    private lateinit var binding: ActivityHomeBinding
-    private var listData = listOf<Tumbuhan>()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        binding.button.setOnClickListener { cariTanaman() }
-        supportActionBar?.hide()
-        listData = getData()
+    init {
+        fullListData = getData()
     }
 
     private fun getData(): List<Tumbuhan> {
@@ -135,40 +131,12 @@ class HomeActivity : AppCompatActivity() {
         )
     }
 
-    private fun cariTanaman() {
-        val cari = binding.tanamanInp.text.toString().lowercase()
-        if (TextUtils.isEmpty(cari)) {
-            Toast.makeText(this, R.string.cari_invalid, Toast.LENGTH_LONG).show()
+    fun cariTanaman(namaTanaman: String) {
+        if (TextUtils.isEmpty(namaTanaman)) {
             return
         }
 
-        val filtered = listData.filter { cari.equals(it.nama, ignoreCase = true) }
-        if (filtered.isNotEmpty()) {
-            filtered.forEach { tumbuhan ->
-                binding.details.visibility = View.VISIBLE
-                binding.details.text = getString(R.string.details)
-                binding.gambar.visibility = View.VISIBLE
-                binding.gambar.setImageResource(tumbuhan.imageResId)
-                binding.judulTanaman.visibility = View.VISIBLE
-                binding.judulTanaman.text = tumbuhan.nama
-                binding.deskripsiTanaman.visibility = View.VISIBLE
-                binding.deskripsiTanaman.text = tumbuhan.deskripsi
-                binding.cara.visibility = View.VISIBLE
-                binding.cara.text = tumbuhan.caraMerawat
-                binding.namaLatin.visibility = View.VISIBLE
-                binding.namaLatin.text = tumbuhan.namaLatin
-            }
-        } else {
-            binding.details.visibility = View.VISIBLE
-            binding.details.text = getString(R.string.data_invalid)
-            binding.gambar.visibility = View.GONE
-            binding.judulTanaman.visibility = View.GONE
-            binding.deskripsiTanaman.visibility = View.GONE
-            binding.cara.visibility = View.GONE
-            binding.namaLatin.visibility = View.GONE
-
-        }
-
-
+        val filtered = fullListData.filter { namaTanaman.equals(it.nama, ignoreCase = true) }
+        _listData.value = filtered
     }
 }

@@ -12,12 +12,12 @@
         android:theme="@style/Theme.Asesmen"
         tools:targetApi="31">
         <activity
-            android:name=".HomeActivity"
+            android:name=".activity.HomeActivity"
             android:label="Home"
             android:exported="false"
             android:windowSoftInputMode="stateHidden"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

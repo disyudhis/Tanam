@@ -1,4 +1,4 @@
-package org.d3if3050.asesmen1
+package org.d3if3050.asesmen1.model
 
 data class Tumbuhan(
     val nama: String,
