@@ -7,4 +7,11 @@
     <string name="details">Details</string>
     <string name="cari_invalid">Pencarian harus diisi</string>
     <string name="data_invalid">Maaf, data tidak tersedia</string>
+    <string name="judulNama">Input Data Tanaman</string>
+    <string name="judul_tanaman">Judul Tanaman</string>
+    <string name="inputNamaLatin">Nama Latin</string>
+    <string name="hintDeskripsi">Deskripsi singkat</string>
+    <string name="hintRawat">Cara merawat</string>
+    <string name="tambah_gambar">Tambah Gambar</string>
+    <string name="Selesai">Selesai</string>
 </resources>
