@@ -14,4 +14,7 @@
     <string name="hintRawat">Cara merawat</string>
     <string name="tambah_gambar">Tambah Gambar</string>
     <string name="Selesai">Selesai</string>
+    <string name="tambah_data">Tambah Data</string>
+    <string name="pencarian">Pencarian</string>
+    <string name="list_tanaman">List Tanaman</string>
 </resources>

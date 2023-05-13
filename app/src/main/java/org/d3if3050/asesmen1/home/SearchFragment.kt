@@ -32,7 +32,6 @@ class SearchFragment : Fragment() {
         viewModel.listData.observe(requireActivity(), { filtered -> updateUI(filtered) })
     }
 
-    @Suppress("UNREACHABLE_CODE")
     fun cariTanaman(namaTanaman: String) {
         if (TextUtils.isEmpty(namaTanaman)) {
             showError(binding.tanamanHint, "Harap isi data")

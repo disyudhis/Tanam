@@ -3,10 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/searchFragment">
+    app:startDestination="@id/inputFragment">
     <fragment
         android:id="@+id/searchFragment"
         android:name="org.d3if3050.asesmen1.home.SearchFragment"
         android:label="@string/app_name"
         tools:layout="@layout/search_fragment" />
+    <fragment
+        android:id="@+id/inputFragment"
+        android:name="org.d3if3050.asesmen1.input.InputFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/input_fragment">
+        <action
+            android:id="@+id/action_inputFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
 </navigation>
