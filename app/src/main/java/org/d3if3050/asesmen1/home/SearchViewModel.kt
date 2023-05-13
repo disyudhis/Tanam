@@ -1,19 +1,16 @@
-package org.d3if3050.asesmen1.viewModel
+package org.d3if3050.asesmen1.home
 
-import android.text.TextUtils
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.d3if3050.asesmen1.R
-import org.d3if3050.asesmen1.activity.HomeActivity
 import org.d3if3050.asesmen1.model.Tumbuhan
 
-class HomeViewModel : ViewModel(){
-    private val _listData = MutableLiveData<List<Tumbuhan>>()
+class SearchViewModel : ViewModel(){
+    val _listData = MutableLiveData<List<Tumbuhan>>()
     val listData: LiveData<List<Tumbuhan>> = _listData
 
-   private var fullListData = listOf<Tumbuhan>()
+   var fullListData = listOf<Tumbuhan>()
 
     init {
         fullListData = getData()
@@ -131,12 +128,4 @@ class HomeViewModel : ViewModel(){
         )
     }
 
-    fun cariTanaman(namaTanaman: String) {
-        if (TextUtils.isEmpty(namaTanaman)) {
-            return
-        }
-
-        val filtered = fullListData.filter { namaTanaman.equals(it.nama, ignoreCase = true) }
-        _listData.value = filtered
-    }
 }

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import org.d3if3050.asesmen1.activity.HomeActivity
 
 class SplashScreenActivity : AppCompatActivity() {
 
