@@ -96,16 +96,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <View
-            android:id="@+id/dividerInput"
-            android:layout_marginTop="32dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintTop_toBottomOf="@+id/hintRawat" />
-
         <Button
             android:id="@+id/buttonInput"
             android:layout_width="wrap_content"
@@ -113,7 +103,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dividerInput"
+            app:layout_constraintTop_toBottomOf="@+id/hintRawat"
             app:layout_constraintBottom_toBottomOf="parent"
             android:text="@string/Selesai"/>
 

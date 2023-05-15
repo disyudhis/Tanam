@@ -1,4 +1,4 @@
-package org.d3if3050.asesmen1.home
+package org.d3if3050.asesmen1.search
 
 
 import android.os.Bundle
@@ -29,7 +29,7 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.button.setOnClickListener { cariTanaman(binding.tanamanInp.text.toString()) }
-        viewModel.listData.observe(requireActivity(), { filtered -> updateUI(filtered) })
+        viewModel.listData().observe(requireActivity(), { filtered -> updateUI(filtered) })
     }
 
     fun cariTanaman(namaTanaman: String) {
@@ -39,9 +39,8 @@ class SearchFragment : Fragment() {
         }
         showError(binding.tanamanHint, "")
         val filtered =
-            viewModel.fullListData.filter { namaTanaman.equals(it.nama, ignoreCase = true) }
+            viewModel.fullListData().filter { namaTanaman.equals(it.nama, ignoreCase = true) }
         viewModel._listData.value = filtered
-        return
     }
 
     fun showError(layout: TextInputLayout, error: String) {
@@ -53,9 +52,8 @@ class SearchFragment : Fragment() {
         if (filtered.isNotEmpty()) {
             filtered.forEach { tumbuhan ->
                 binding.details.visibility = View.VISIBLE
-                binding.details.text = getString(R.string.details)
+                binding.details.text = context?.getString(R.string.details)
                 binding.gambar.visibility = View.VISIBLE
-                binding.gambar.setImageResource(tumbuhan.imageResId)
                 binding.judulTanaman.visibility = View.VISIBLE
                 binding.judulTanaman.text = tumbuhan.nama
                 binding.deskripsiTanaman.visibility = View.VISIBLE
@@ -65,15 +63,17 @@ class SearchFragment : Fragment() {
                 binding.namaLatin.visibility = View.VISIBLE
                 binding.namaLatin.text = tumbuhan.namaLatin
             }
+            return
         } else {
             showError(binding.tanamanHint, "Data tidak ditemukan")
             binding.details.visibility = View.VISIBLE
-            binding.details.text = getString(R.string.data_invalid)
+            binding.details.text = context?.getString(R.string.data_invalid)
             binding.gambar.visibility = View.GONE
             binding.judulTanaman.visibility = View.GONE
             binding.deskripsiTanaman.visibility = View.GONE
             binding.cara.visibility = View.GONE
             binding.namaLatin.visibility = View.GONE
         }
+        return
     }
 }

@@ -5,5 +5,4 @@ data class Tumbuhan(
     val namaLatin: String,
     val deskripsi: String,
     val caraMerawat: String,
-    val imageResId: Int,
 )

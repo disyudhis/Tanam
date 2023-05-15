@@ -1,4 +1,4 @@
-package org.d3if3050.asesmen1.home
+package org.d3if3050.asesmen1.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,13 +8,9 @@ import org.d3if3050.asesmen1.model.Tumbuhan
 
 class SearchViewModel : ViewModel(){
     val _listData = MutableLiveData<List<Tumbuhan>>()
-    val listData: LiveData<List<Tumbuhan>> = _listData
+    fun listData(): LiveData<List<Tumbuhan>> = _listData
 
-   var fullListData = listOf<Tumbuhan>()
-
-    init {
-        fullListData = getData()
-    }
+   fun fullListData() = getData()
 
     private fun getData(): List<Tumbuhan> {
         return listOf(
@@ -35,7 +31,6 @@ class SearchViewModel : ViewModel(){
                         "6. Pot yang sesuai: Pilih ukuran pot yang sesuai dengan ukuran tanaman dan pastikan pot memiliki lubang drainase.\n" +
                         "\n" +
                         "7. Perawatan rutin: Potong daun yang rusak dan bersihkan debu dari daun untuk menjaga kesehatan tanaman.",
-                R.drawable.monstera
             ),
 
             Tumbuhan(
@@ -55,7 +50,6 @@ class SearchViewModel : ViewModel(){
                         "6. Pemindahan: Pindahkan tanaman ke pot yang lebih besar setiap dua atau tiga tahun sekali untuk memberikan ruang untuk pertumbuhan.\n" +
                         "\n" +
                         "7. Temperatur: Lidah mertua dapat bertahan hidup pada suhu yang relatif dingin dan suhu kamar yang hangat. Namun, sebaiknya hindari suhu ekstrem yang terlalu panas atau terlalu dingin.",
-                R.drawable.lidah_mertua
             ),
 
             Tumbuhan(
@@ -77,7 +71,6 @@ class SearchViewModel : ViewModel(){
                         "7. Perawatan rutin: Potong daun yang rusak dan bersihkan debu dari daun untuk menjaga kesehatan tanaman.\n" +
                         "\n" +
                         "8. Temperatur: Ficus Benjamina tumbuh dengan baik pada suhu yang relatif hangat, antara 16-24 derajat Celsius. Hindari suhu ekstrem yang terlalu panas atau terlalu dingin.",
-                R.drawable.ficus
             ),
 
             Tumbuhan(
@@ -101,7 +94,6 @@ class SearchViewModel : ViewModel(){
                         "8. Temperatur: Alocasia Polly tumbuh dengan baik pada suhu yang relatif hangat, antara 18-25 derajat Celsius. Hindari suhu ekstrem yang terlalu panas atau terlalu dingin.\n" +
                         "\n" +
                         "9. Hindari Angin: Alocasia Polly rentan terhadap angin, jadi jangan letakkan tanaman di tempat yang angin terlalu kencang.",
-                R.drawable.gajah_mini
             ),
             Tumbuhan(
                 "Kaktus",
@@ -123,7 +115,6 @@ class SearchViewModel : ViewModel(){
                         "\n" +
                         "8. Hindari manipulasi: Hindari memindahkan atau memutar pot kaktus terlalu sering karena dapat merusak akar yang sensitif.\n" +
                         "\n",
-                R.drawable.cactus
             ),
         )
     }
