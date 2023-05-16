@@ -11,6 +11,9 @@ interface TanamDao {
     @Insert
     fun insert(tanam: TanamEntity)
 
-    @Query("SELECT * FROM tanam ORDER BY id DESC LIMIT 1")
-    fun getLastData(): LiveData<TanamEntity?>
+    @Query("SELECT * FROM tanam ORDER BY id DESC")
+    fun getLastData(): LiveData<List<TanamEntity>>
+
+    @Query("DELETE FROM tanam")
+    fun clearData()
 }

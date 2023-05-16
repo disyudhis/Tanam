@@ -12,9 +12,12 @@
     <string name="inputNamaLatin">Nama Latin</string>
     <string name="hintDeskripsi">Deskripsi singkat</string>
     <string name="hintRawat">Cara merawat</string>
-    <string name="tambah_gambar">Tambah Gambar</string>
     <string name="Selesai">Selesai</string>
     <string name="tambah_data">Tambah Data</string>
     <string name="pencarian">Pencarian</string>
     <string name="list_tanaman">List Tanaman</string>
+    <string name="empty">Belum ada data</string>
+    <string name="konfirmasi_hapus">Yakin untuk menghapus?</string>
+    <string name="hapus">Ya</string>
+    <string name="batal">Tidak</string>
 </resources>

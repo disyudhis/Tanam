@@ -17,5 +17,12 @@
         <action
             android:id="@+id/action_inputFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_inputFragment_to_listFragment"
+            app:destination="@id/listFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="org.d3if3050.asesmen1.list.ListFragment"
+        android:label="@string/app_name" />
 </navigation>

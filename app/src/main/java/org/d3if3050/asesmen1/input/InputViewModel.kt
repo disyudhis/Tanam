@@ -15,7 +15,6 @@ import org.d3if3050.asesmen1.model.simpanData
 class InputViewModel(private val db: TanamDao) : ViewModel() {
 
     private val hasilTanam = MutableLiveData<Tumbuhan?>()
-    fun getHasilTanam(): LiveData<Tumbuhan?> = hasilTanam
 
     val data = db.getLastData()
 

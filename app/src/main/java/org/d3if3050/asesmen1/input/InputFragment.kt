@@ -3,6 +3,7 @@ package org.d3if3050.asesmen1.input
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -36,17 +37,25 @@ class InputFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_search) {
-            findNavController().navigate(
-                R.id.action_inputFragment_to_searchFragment
-            )
-            return true
+        when (item.itemId) {
+            R.id.action_search -> {
+                findNavController().navigate(
+                    R.id.action_inputFragment_to_searchFragment
+                )
+                return true
+            }
+            R.id.action_list -> {
+                findNavController().navigate(
+                    R.id.action_inputFragment_to_listFragment
+                )
+                return true
+            }
         }
         return super.onOptionsItemSelected(item)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.buttonInput.setOnClickListener{ simpanData()}
+        binding.buttonInput.setOnClickListener { simpanData() }
     }
 
     fun simpanData() {
@@ -54,27 +63,58 @@ class InputFragment : Fragment() {
         if (TextUtils.isEmpty(namaTanaman)) {
             showError(binding.hintJudul, "Nama Tanaman harus diisi")
             return
+        } else {
+            showError(binding.hintJudul, "")
         }
 
         val namaLatin = binding.inputNamaLatin.text.toString()
         if (TextUtils.isEmpty(namaLatin)) {
             showError(binding.hintNamaLatin, "Nama Latin harus diisi")
             return
+        } else {
+            showError(binding.hintNamaLatin, "")
         }
 
         val deskripsi = binding.inputDeskripsi.text.toString()
         if (TextUtils.isEmpty(deskripsi)) {
             showError(binding.hintDeskripsi, "Deskripsi harus diisi")
             return
+        } else if (deskripsi.length < 25) {
+            showError(binding.hintDeskripsi, "Deskripsi harus berisi minimal 20 karakter")
+            return
+        } else {
+            showError(binding.hintDeskripsi, "")
         }
+
         val rawat = binding.inputRawat.text.toString()
         if (TextUtils.isEmpty(rawat)) {
             showError(binding.hintRawat, "Cara merawat harus diisi")
             return
+        } else if (rawat.length < 25) {
+            showError(binding.hintRawat, "Cara merawat harus berisi minimal 20 karakter")
+            return
+        } else {
+            showError(binding.hintRawat, "")
         }
+
         viewModel.simpanData(
             namaTanaman, namaLatin, deskripsi, rawat
         )
+        viewModel.data.observe(viewLifecycleOwner) {
+            if (it != null) {
+                Toast.makeText(context, "Data berhasil disimpan", Toast.LENGTH_LONG).show()
+                clearData()
+            } else {
+                Toast.makeText(context, "Data gagal ditambahkan", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    fun clearData() {
+        binding.inputJudul.text?.clear()
+        binding.inputNamaLatin.text?.clear()
+        binding.inputDeskripsi.text?.clear()
+        binding.inputRawat.text?.clear()
     }
 
     fun showError(layout: TextInputLayout, error: String) {
