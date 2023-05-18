@@ -1,57 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    android:layout_margin="8dp">
 
-    <TextView
-        android:id="@+id/judul"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@id/logoTanam"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Mawar Jingga" />
+        android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/logoTanam"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/ic_circle"
-        android:gravity="center"
-        android:src="@drawable/ic_flower"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/monstera" />
 
-    <TextView
-        android:id="@+id/latin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        app:layout_constraintStart_toStartOf="@id/judul"
-        app:layout_constraintTop_toBottomOf="@id/judul"
-        android:textStyle="italic"
-        tools:text="Miwir jinggi" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/desc"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintStart_toStartOf="@id/judul"
-        app:layout_constraintTop_toBottomOf="@id/latin"
-        tools:text="Rawat sesukamu yah" />
+            <TextView
+                android:id="@+id/judul"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:textColor="@color/green_500"
+                android:textStyle="bold"
+                android:paddingStart="8dp"
+                android:text=""
+                tools:text="Monstera"
+                android:fontFamily="@font/arvo_bold"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <TextView
+                android:id="@+id/latin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:paddingStart="8dp"
+                android:layout_weight="1"
+                android:text=""
+                tools:text="Minstiri"
+                android:textStyle="italic"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/judul"/>
+            <TextView
+                android:id="@+id/desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:paddingStart="8dp"
+                android:layout_weight="1"
+                android:text=""
+                android:layout_marginTop="2dp"
+                android:textSize="14sp"
+                tools:text="Monstera adalah anjay sekali yagesya"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/latin"/>
+            <TextView
+                android:id="@+id/tanggal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:text=""
+                android:layout_marginTop="2dp"
+                android:textSize="14sp"
+                android:textColor="@color/green_700"
+                tools:text="23 Juli 2003"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/desc"/>
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

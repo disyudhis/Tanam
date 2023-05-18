@@ -1,14 +1,18 @@
-package org.d3if3050.asesmen1.list
+package org.d3if3050.asesmen1.ui.list
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import org.d3if3050.asesmen1.R
 import org.d3if3050.asesmen1.databinding.ItemListBinding
 import org.d3if3050.asesmen1.db.TanamEntity
 import org.d3if3050.asesmen1.model.simpanData
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ListAdapter :
     androidx.recyclerview.widget.ListAdapter<TanamEntity, ListAdapter.ViewHolder>(DIFF_CALLBACK) {
@@ -42,15 +46,16 @@ class ListAdapter :
     class ViewHolder(
         private val binding: ItemListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
+        private val dateFormatter = SimpleDateFormat("dd MMMM yyyy", Locale("id", "ID"))
+
         fun bind(item: TanamEntity) = with(binding) {
             val hasilTanam = item.simpanData()
-            val rnd = java.util.Random()
-            val color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256))
-            val circleBg = logoTanam.background as GradientDrawable
-            circleBg.setColor(color)
             judul.text = hasilTanam.nama
             latin.text = hasilTanam.namaLatin
-            desc.text = hasilTanam.deskripsi.substring(0, 20)
+            desc.text = root.context.getString(
+                R.string.deskripsi_x, hasilTanam.deskripsi.substring(0, 20)
+            )
+            tanggal.text = dateFormatter.format(Date(item.tanggal))
         }
     }
 }

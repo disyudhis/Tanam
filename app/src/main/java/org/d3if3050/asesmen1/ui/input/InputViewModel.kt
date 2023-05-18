@@ -1,4 +1,4 @@
-package org.d3if3050.asesmen1.input
+package org.d3if3050.asesmen1.ui.input
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

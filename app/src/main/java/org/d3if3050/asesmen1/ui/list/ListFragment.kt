@@ -1,4 +1,4 @@
-package org.d3if3050.asesmen1.list
+package org.d3if3050.asesmen1.ui.list
 
 import android.os.Bundle
 import android.view.*

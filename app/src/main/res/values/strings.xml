@@ -20,4 +20,6 @@
     <string name="konfirmasi_hapus">Yakin untuk menghapus?</string>
     <string name="hapus">Ya</string>
     <string name="batal">Tidak</string>
+    <string name="deskripsi_x">"Deskripsi : %1$s … "</string>
+    <string name="content_desc">Dummy image</string>
 </resources>
