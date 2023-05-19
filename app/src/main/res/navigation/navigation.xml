@@ -13,16 +13,25 @@
         android:id="@+id/inputFragment"
         android:name="org.d3if3050.asesmen1.ui.input.InputFragment"
         tools:layout="@layout/input_fragment"
-        android:label="Home">
+        android:label="Tanam">
         <action
             android:id="@+id/action_inputFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
         <action
             android:id="@+id/action_inputFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <action
+            android:id="@+id/action_inputFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
     </fragment>
     <fragment
         android:id="@+id/listFragment"
         android:name="org.d3if3050.asesmen1.ui.list.ListFragment"
-        android:label="List" />
+        android:label="Daftar Tanaman"
+        tools:layout="@layout/list_fragment"/>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="org.d3if3050.asesmen1.ui.about.AboutFragment"
+        android:label="Tentang kami"
+        tools:layout="@layout/about_fragment"/>
 </navigation>

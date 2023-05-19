@@ -8,6 +8,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/judulInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/judulInput"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/deskripsiInput"/>
+
+        <TextView
+            android:id="@+id/deskripsiInput"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:text="@string/deskripsiInput"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/judulInput"
+            app:layout_constraintBottom_toTopOf="@id/hintJudul"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/hintJudul"
             android:layout_width="match_parent"
@@ -17,7 +43,7 @@
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/deskripsiInput">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputJudul"
@@ -96,9 +122,23 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="@string/Selesai"
+            app:layout_constraintBottom_toTopOf="@id/about_us"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/hintRawat" />
+
+        <Button
+            android:id="@+id/about_us"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/about_us"
+            android:textColor="@color/black"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/hintRawat" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/buttonInput" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -22,4 +22,8 @@
     <string name="batal">Tidak</string>
     <string name="deskripsi_x">"Deskripsi : %1$s … "</string>
     <string name="content_desc">Dummy image</string>
+    <string name="about_us">Tentang kami</string>
+    <string name="deskripsiInput">Silakan masukkan data tanaman sesuka mu</string>
+    <string name="judulInput">Selamat Datang!</string>
+    <string name="copyright">Tanam merupakan sebuah aplikasi Android sederhana untuk mencari informasi, mengisi informasi, juga menghapus informasi tanaman. \n\nAplikasi ini dibuat untuk Asesmen 2 Mobpro. Temukan kodenya di https://github.com/disyudhis/Asesmen1-Mopro\n\nCopyright © 2023 Yudhistira Haryatmaka.\nAll rights reserved</string>
 </resources>

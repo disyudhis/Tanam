@@ -2,7 +2,7 @@ package org.d3if3050.asesmen1.ui.search
 
 
 import android.os.Bundle
-import android.text.TextUtils
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,21 +34,16 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.button.setOnClickListener { cariTanaman() }
-//        viewModel.getHasilTanaman().observe(requireActivity()){ updateUI(it)}
+        viewModel.hasilTanaman.observe(viewLifecycleOwner) {
+            updateUI(it)
+        }
     }
 
     fun cariTanaman() {
-        val pencarian = binding.tanamanInp.text.toString()
-        if (TextUtils.isEmpty(pencarian)) {
-            showError(binding.tanamanHint, "Harap isi data")
-            return
-        } else {
-            showError(binding.tanamanHint, "")
-            val pencarianIgnore = pencarian.toLowerCase()
-            viewModel.getTanaman(pencarianIgnore).observe(requireActivity()) {
-                updateUI(it)
-            }
+        val namaTanaman = binding.tanamanInp.text ?: return
+        if (namaTanaman.isEmpty()) {
         }
+        viewModel.getTanaman(namaTanaman.toString())
     }
 
     fun showError(layout: TextInputLayout, error: String) {
@@ -57,9 +52,10 @@ class SearchFragment : Fragment() {
     }
 
     private fun updateUI(filtered: TanamEntity?) {
-        if (filtered == null)  {
+        if (filtered == null) {
             return showError(binding.tanamanHint, "Data tidak ditemukan")
         }
+        Log.d("update", filtered.namaTanaman)
         binding.gambar.isVisible = true
         binding.card.isVisible = true
         binding.judulTanaman.isVisible = true

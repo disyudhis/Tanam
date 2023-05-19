@@ -1,19 +1,29 @@
 package org.d3if3050.asesmen1.ui.search
 
-import androidx.lifecycle.LiveData
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.d3if3050.asesmen1.db.TanamDao
 import org.d3if3050.asesmen1.db.TanamEntity
 
 class SearchViewModel(private val db: TanamDao) : ViewModel() {
 
-    private val hasilTanaman = MutableLiveData<TanamEntity?>()
-    fun getHasilTanaman(): LiveData<TanamEntity?> = hasilTanaman
+    var hasilTanaman = MutableLiveData<TanamEntity>()
 
-    fun getTanaman(nama: String)  : LiveData<TanamEntity>{
-        return db.getTanaman(nama)
+    val data = db.getLastData()
+
+    fun getTanaman(nama: String) = viewModelScope.launch {
+        withContext(Dispatchers.IO) {
+            hasilTanaman.value = db.getTanaman(nama)
+        }
+
     }
+
+
 }
 
 

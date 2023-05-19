@@ -42,15 +42,16 @@
                 android:id="@+id/latin"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:paddingStart="8dp"
                 android:layout_weight="1"
                 android:text=""
                 tools:text="Minstiri"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
                 android:textStyle="italic"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/judul"/>
+                app:layout_constraintStart_toEndOf="@id/judul"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
             <TextView
                 android:id="@+id/desc"
                 android:layout_width="0dp"
@@ -63,7 +64,7 @@
                 android:textSize="14sp"
                 tools:text="Monstera adalah anjay sekali yagesya"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/latin"/>
+                app:layout_constraintTop_toBottomOf="@id/judul"/>
             <TextView
                 android:id="@+id/tanggal"
                 android:layout_width="0dp"

@@ -16,6 +16,8 @@ class InputViewModel(private val db: TanamDao) : ViewModel() {
 
     private val hasilTanam = MutableLiveData<Tumbuhan?>()
 
+    fun getHasilTanam() : LiveData<Tumbuhan?> = hasilTanam
+
     val data = db.getLastData()
 
     fun simpanData(namaTanaman: String, namaLatin: String, deskripsi: String, caraMerawat: String) {

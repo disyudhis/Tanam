@@ -5,6 +5,7 @@ import android.text.TextUtils
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.ListFragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
@@ -56,6 +57,11 @@ class InputFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.buttonInput.setOnClickListener { simpanData() }
+        binding.aboutUs.setOnClickListener{
+            findNavController().navigate(
+                R.id.action_inputFragment_to_aboutFragment
+            )
+        }
     }
 
     fun simpanData() {
@@ -104,6 +110,9 @@ class InputFragment : Fragment() {
             if (it != null) {
                 Toast.makeText(context, "Data berhasil disimpan", Toast.LENGTH_LONG).show()
                 clearData()
+                findNavController().navigate(
+                    R.id.action_inputFragment_to_listFragment
+                )
             } else {
                 Toast.makeText(context, "Data gagal ditambahkan", Toast.LENGTH_LONG).show()
             }
