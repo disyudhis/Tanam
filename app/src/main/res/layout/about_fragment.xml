@@ -27,7 +27,6 @@
             android:text="@string/copyright"
             android:textSize="18sp" />
 
-
     </LinearLayout>
 
 </ScrollView>
