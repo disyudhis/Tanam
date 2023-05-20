@@ -7,4 +7,9 @@
         android:title="Hapus data"
         app:showAsAction="ifRoom" />
 
+    <item android:id="@+id/switch_layout"
+        android:icon="@drawable/ic_grid"
+        android:title="Ganti layout"
+        app:showAsAction="ifRoom"/>
+
 </menu>

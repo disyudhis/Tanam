@@ -22,6 +22,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:layout_gravity="center_horizontal"
             android:autoLink="web"
             android:text="@string/copyright"

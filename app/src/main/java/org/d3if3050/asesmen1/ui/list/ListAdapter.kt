@@ -1,8 +1,5 @@
 package org.d3if3050.asesmen1.ui.list
 
-import android.annotation.SuppressLint
-import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil

@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="8dp"
     app:cardCornerRadius="8dp"
-    app:cardElevation="4dp"
-    android:layout_margin="8dp">
+    app:cardElevation="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,64 +21,63 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/judul"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
                 android:layout_weight="1"
-                android:textColor="@color/green_500"
-                android:textStyle="bold"
-                android:paddingStart="8dp"
-                android:text=""
-                tools:text="Monstera"
                 android:fontFamily="@font/arvo_bold"
+                android:text=""
+                android:textColor="@color/green_500"
                 android:textSize="20sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Monstera" />
+
             <TextView
                 android:id="@+id/latin"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
                 android:layout_weight="1"
-                android:text=""
-                tools:text="Minstiri"
-                android:layout_marginTop="4dp"
                 android:gravity="center"
-                android:textStyle="italic"
+                android:text=""
                 android:textSize="16sp"
-                app:layout_constraintStart_toEndOf="@id/judul"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/judul"
+                tools:text="Minstiri" />
+
             <TextView
                 android:id="@+id/desc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:paddingStart="8dp"
                 android:layout_weight="1"
                 android:text=""
-                android:layout_marginTop="2dp"
                 android:textSize="14sp"
-                tools:text="Monstera adalah anjay sekali yagesya"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/judul"/>
+                app:layout_constraintTop_toBottomOf="@id/latin"
+                tools:text="Monstera adalah anjay sekali yagesya" />
+
             <TextView
                 android:id="@+id/tanggal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:paddingStart="8dp"
-                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginTop="2dp"
                 android:layout_weight="1"
                 android:text=""
-                android:layout_marginTop="2dp"
-                android:textSize="14sp"
                 android:textColor="@color/green_700"
-                tools:text="23 Juli 2003"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/desc"/>
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="23 Juli 2003" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
