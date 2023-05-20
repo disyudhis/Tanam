@@ -12,7 +12,7 @@ class ListViewModel(private val db: TanamDao) : ViewModel() {
     val data = db.getLastData()
 
     fun hapusData() = viewModelScope.launch {
-        withContext(Dispatchers.IO) {
+        withContext(Dispatchers.IO){
             db.clearData()
         }
     }

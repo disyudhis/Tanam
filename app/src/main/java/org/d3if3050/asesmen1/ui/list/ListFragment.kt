@@ -19,7 +19,8 @@ import org.d3if3050.asesmen1.db.SettingsDataStore
 import org.d3if3050.asesmen1.db.TanamDb
 import org.d3if3050.asesmen1.db.dataStore
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(){
+
 
     private val viewModel: ListViewModel by lazy {
         val db = TanamDb.getInstance(requireContext())
@@ -33,7 +34,6 @@ class ListFragment : Fragment() {
     private val layoutDataStore: SettingsDataStore by lazy {
         SettingsDataStore(requireContext().dataStore)
     }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -74,9 +74,11 @@ class ListFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menu_hapus) {
-            hapusData()
-            return true
-        } else if (item.itemId == R.id.switch_layout) {
+            lifecycleScope.launch {
+                hapusData()
+            }
+        }
+        if (item.itemId == R.id.switch_layout) {
             lifecycleScope.launch {
                 layoutDataStore.saveLayout(!isLinearLayout, requireContext())
             }
@@ -111,4 +113,5 @@ class ListFragment : Fragment() {
             R.drawable.ic_view
         menuItem.icon = ContextCompat.getDrawable(requireContext(), iconId)
     }
+
 }

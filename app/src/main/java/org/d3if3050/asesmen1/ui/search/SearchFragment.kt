@@ -2,7 +2,7 @@ package org.d3if3050.asesmen1.ui.search
 
 
 import android.os.Bundle
-import android.util.Log
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,10 +40,16 @@ class SearchFragment : Fragment() {
     }
 
     fun cariTanaman() {
-        val namaTanaman = binding.tanamanInp.text ?: return
-        if (namaTanaman.isEmpty()) {
+        val pencarian = binding.tanamanInp.text.toString()
+        if (TextUtils.isEmpty(pencarian)) {
+            showError(binding.tanamanHint, "Harap isi data")
+            return
+        } else {
+            showError(binding.tanamanHint, "")
+            viewModel.getTanaman(pencarian).observe(requireActivity()) {
+                updateUI(it)
+            }
         }
-        viewModel.getTanaman(namaTanaman.toString())
     }
 
     fun showError(layout: TextInputLayout, error: String) {
@@ -55,7 +61,6 @@ class SearchFragment : Fragment() {
         if (filtered == null) {
             return showError(binding.tanamanHint, "Data tidak ditemukan")
         }
-        Log.d("update", filtered.namaTanaman)
         binding.gambar.isVisible = true
         binding.card.isVisible = true
         binding.judulTanaman.isVisible = true

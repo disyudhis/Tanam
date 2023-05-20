@@ -15,9 +15,12 @@ interface TanamDao {
     @Query("SELECT * FROM tanam ORDER BY id DESC")
     fun getLastData(): LiveData<List<TanamEntity>>
 
-    @Query("SELECT * FROM tanam WHERE namaTanaman LIKE '%' || :nama || '%'")
-    fun getTanaman(nama: String): TanamEntity
+    @Query("SELECT * FROM tanam WHERE namaTanaman = :nama")
+    fun getTanaman(nama: String): LiveData<TanamEntity>
 
     @Query("DELETE FROM tanam")
     fun clearData()
+
+    @Query("DELETE from tanam WHERE id = :id")
+    fun deleteById(id: Int)
 }

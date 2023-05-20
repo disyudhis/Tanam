@@ -30,6 +30,7 @@ class ListAdapter :
             }
     }
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = ItemListBinding.inflate(inflater, parent, false)
@@ -53,6 +54,7 @@ class ListAdapter :
                 R.string.deskripsi_x, hasilTanam.deskripsi.substring(0, 20)
             )
             tanggal.text = dateFormatter.format(Date(item.tanggal))
+
         }
     }
 }
