@@ -1,0 +1,12 @@
+[
+  {"nama": "Monstera deliciosa", "namaLatin":  "Monstera deliciosa", "imageRes": "monstera"},
+  {"nama": "Peace lily", "namaLatin":  "Spathiphyllum wallisii", "imageRes": "lily"},
+  {"nama": "Pothos", "namaLatin":  "Epipremnum aureum", "imageRes": "pothos"},
+  {"nama": "Orchid", "namaLatin":  "Orchidaceae", "imageRes": "orchid"},
+  {"nama": "Snake plant", "namaLatin":  "Sansevieria trifasciata", "imageRes": "snake"},
+  {"nama": "Fiddle-leaf fig", "namaLatin":  "Ficus lyrata", "imageRes": "fiddle"},
+  {"nama": "Spider plant", "namaLatin":  "Chlorophytum comosum", "imageRes": "spider"},
+  {"nama": "Rubber plant", "namaLatin":  "Ficus elastica", "imageRes": "rubber"},
+  {"nama": "ZZ plant", "namaLatin":  "Zamioculcas zamiifolia", "imageRes": "zz"},
+  {"nama": "Bird of Paradise", "namaLatin":  "Strelitzia reginae", "imageRes": "bird"}
+]
