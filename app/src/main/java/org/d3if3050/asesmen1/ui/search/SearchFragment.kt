@@ -3,13 +3,13 @@ package org.d3if3050.asesmen1.ui.search
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.textfield.TextInputLayout
+import org.d3if3050.asesmen1.R
 import org.d3if3050.asesmen1.databinding.SearchFragmentBinding
 import org.d3if3050.asesmen1.db.TanamDb
 import org.d3if3050.asesmen1.db.TanamEntity
@@ -29,6 +29,7 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = SearchFragmentBinding.inflate(layoutInflater, container, false)
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -71,5 +72,22 @@ class SearchFragment : Fragment() {
         binding.deskripsiTanaman.text = filtered.deskripsi
         binding.cara.text = filtered.caraMerawat
         binding.namaLatin.text = filtered.namaLatin
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.search_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+       when(item.itemId) {
+           R.id.menu_galeri -> {
+               findNavController().navigate(
+                   R.id.action_searchFragment_to_galleryFragment
+               )
+               return true
+           }
+       }
+        return super.onOptionsItemSelected(item)
     }
 }

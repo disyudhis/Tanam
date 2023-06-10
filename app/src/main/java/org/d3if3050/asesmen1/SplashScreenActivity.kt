@@ -3,8 +3,6 @@ package org.d3if3050.asesmen1
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.Window
 import android.view.WindowInsets
 import android.view.WindowManager
@@ -29,12 +27,9 @@ class SplashScreenActivity : AppCompatActivity() {
 
             )
         }
-        val splashTime: Long = 2000
+        val intent = Intent(this@SplashScreenActivity, HomeActivity::class.java)
+        startActivity(intent)
+        finish()
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this@SplashScreenActivity, HomeActivity::class.java)
-            startActivity(intent)
-            finish()
-        }, splashTime)
     }
 }
