@@ -6,11 +6,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.d3if3050.asesmen1.model.Galeri
 import org.d3if3050.asesmen1.network.ApiStatus
 import org.d3if3050.asesmen1.network.TanamanApi
+import org.d3if3050.asesmen1.network.UpdateWorker
+import java.util.concurrent.TimeUnit
 
 class GalleryViewModel : ViewModel() {
 
@@ -36,6 +41,18 @@ class GalleryViewModel : ViewModel() {
 
     fun getData(): LiveData<List<Galeri>> = data
     fun getStatus(): LiveData<ApiStatus> = status
+    fun scheduleUpdater(app: Application) {
+        val request = OneTimeWorkRequestBuilder<UpdateWorker>()
+            .setInitialDelay(1, TimeUnit.MINUTES)
+            .build()
+
+        WorkManager.getInstance(app).enqueueUniqueWork(
+            UpdateWorker.WORK_NAME,
+            ExistingWorkPolicy.REPLACE,
+            request
+        )
+
+    }
 
 
 }

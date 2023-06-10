@@ -28,4 +28,8 @@
     <string name="copyright">Tanam merupakan sebuah aplikasi Android sederhana untuk mencari informasi, mengisi informasi, juga menghapus informasi tanaman. \n\nAplikasi ini dibuat untuk Asesmen 2 Mobpro. Temukan kodenya di https://github.com/disyudhis/Asesmen1-Mopro\n\nCopyright © 2023 Yudhistira Haryatmaka.\nAll rights reserved</string>
     <string name="koneksi_error">Koneksi error</string>
     <string name="message">%1$s diklik!</string>
+    <string name="channel_name">Updater</string>
+    <string name="channel_desc">Update data tanaman otomatis</string>
+    <string name="notif_title">Ada tanaman baru!</string>
+    <string name="notif_text">Cek sekarang yu...</string>
 </resources>
